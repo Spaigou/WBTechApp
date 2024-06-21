@@ -17,6 +17,7 @@ import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -243,12 +244,4 @@ private object NoRippleTheme : RippleTheme {
 
     @Composable
     override fun rippleAlpha(): RippleAlpha = RippleAlpha(0.0f, 0.0f, 0.0f, 0.0f)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun AppPreview() {
-    WBTechAndroidAppTheme {
-        MainScreen()
-    }
 }
