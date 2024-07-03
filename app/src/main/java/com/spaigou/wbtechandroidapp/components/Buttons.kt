@@ -1,4 +1,4 @@
-package com.spaigou.wbtechandroidapp
+package com.spaigou.wbtechandroidapp.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -17,7 +17,6 @@ import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -32,10 +31,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.spaigou.wbtechandroidapp.ui.theme.BrandColorBackground
+import com.spaigou.wbtechandroidapp.MainScreen
+import com.spaigou.wbtechandroidapp.components.NoRippleTheme
 import com.spaigou.wbtechandroidapp.ui.theme.BrandColorDark
 import com.spaigou.wbtechandroidapp.ui.theme.BrandColorDefault
-import com.spaigou.wbtechandroidapp.ui.theme.NeutralSecondaryBG
+import com.spaigou.wbtechandroidapp.ui.theme.NeutralOffWhite
 import com.spaigou.wbtechandroidapp.ui.theme.Violet20
 import com.spaigou.wbtechandroidapp.ui.theme.WBTechAndroidAppTheme
 import kotlinx.coroutines.delay
@@ -47,24 +47,6 @@ fun Buttons() {
         modifier = Modifier
             .fillMaxSize()
     ) {
-        val primaryColors: ButtonColors = ButtonDefaults.buttonColors(
-            containerColor = BrandColorDefault,
-            disabledContainerColor = Violet20,
-            contentColor = NeutralSecondaryBG,
-            disabledContentColor = NeutralSecondaryBG
-        )
-        val secondaryColors: ButtonColors = ButtonDefaults.outlinedButtonColors(
-            containerColor = BrandColorBackground,
-            disabledContainerColor = Violet20,
-            contentColor = NeutralSecondaryBG,
-            disabledContentColor = NeutralSecondaryBG
-        )
-        val ghostColors: ButtonColors = ButtonDefaults.textButtonColors(
-            containerColor = BrandColorBackground,
-            disabledContainerColor = BrandColorBackground,
-            contentColor = BrandColorDefault,
-            disabledContentColor = Violet20
-        )
         Column {
             for (i in 0..2) {
                 val enabled = i != 2
@@ -75,21 +57,18 @@ fun Buttons() {
                     PrimaryButton(
                         onClick = {},
                         modifier = Modifier.padding(12.dp),
-                        colors = primaryColors,
                         content = { Text("Button") },
                         enabled = enabled
                     )
                     SecondaryButton(
                         onClick = {},
                         modifier = Modifier.padding(12.dp),
-                        colors = secondaryColors,
                         content = { Text("Button") },
                         enabled = enabled
                     )
                     GhostButton(
                         onClick = {},
                         modifier = Modifier.padding(12.dp),
-                        colors = ghostColors,
                         content = { Text("Button") },
                         enabled = enabled
                     )
@@ -108,8 +87,8 @@ fun PrimaryButton(
     colors: ButtonColors = ButtonDefaults.buttonColors(
         containerColor = BrandColorDefault,
         disabledContainerColor = Violet20,
-        contentColor = NeutralSecondaryBG,
-        disabledContentColor = NeutralSecondaryBG
+        contentColor = NeutralOffWhite,
+        disabledContentColor = NeutralOffWhite
     ),
     content: @Composable (RowScope.() -> Unit)
 ) {
@@ -127,6 +106,7 @@ fun PrimaryButton(
         }
     }
     val containerColor = if (isTapped || isPressed) BrandColorDark else colors.containerColor
+
 
     CompositionLocalProvider(LocalRippleTheme provides NoRippleTheme) {
         Button(
@@ -151,8 +131,8 @@ fun SecondaryButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     colors: ButtonColors = ButtonDefaults.outlinedButtonColors(
-        containerColor = BrandColorBackground,
-        disabledContainerColor = BrandColorBackground,
+        containerColor = Color.Unspecified,
+        disabledContainerColor = Color.Unspecified,
         contentColor = BrandColorDefault,
         disabledContentColor = Violet20
     ),
@@ -192,14 +172,22 @@ fun SecondaryButton(
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    WBTechAndroidAppTheme {
+        MainScreen()
+    }
+}
+
 @Composable
 fun GhostButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     colors: ButtonColors = ButtonDefaults.textButtonColors(
-        containerColor = BrandColorBackground,
-        disabledContainerColor = BrandColorBackground,
+        containerColor = Color.Unspecified,
+        disabledContainerColor = Color.Unspecified,
         contentColor = BrandColorDefault,
         disabledContentColor = Violet20
     ),
@@ -245,3 +233,5 @@ private object NoRippleTheme : RippleTheme {
     @Composable
     override fun rippleAlpha(): RippleAlpha = RippleAlpha(0.0f, 0.0f, 0.0f, 0.0f)
 }
+
+

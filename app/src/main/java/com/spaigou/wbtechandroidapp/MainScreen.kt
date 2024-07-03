@@ -1,16 +1,16 @@
 package com.spaigou.wbtechandroidapp
 
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.spaigou.wbtechandroidapp.ui.theme.BrandColorBackground
+import androidx.compose.ui.tooling.preview.Preview
+import com.spaigou.wbtechandroidapp.components.Buttons
+import com.spaigou.wbtechandroidapp.components.ChipRow
+import com.spaigou.wbtechandroidapp.components.SearchBar
 
 @Composable
 fun MainScreen() {
@@ -18,11 +18,18 @@ fun MainScreen() {
         modifier = Modifier
             .fillMaxSize()
             .systemBarsPadding()
-            .background(color = BrandColorBackground)
             .verticalScroll(state = ScrollState(0))
     ) {
         Buttons()
         TypographyField()
+        SearchBar()
+        ChipRow()
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainScreenPreview() {
+    MainScreen()
 }
 

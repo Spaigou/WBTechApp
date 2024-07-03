@@ -24,7 +24,7 @@ val NeutralBody = Color(0xFF1D0835)// use for text
 val NeutralWeak = Color(0xFFA4A4A4)// use for secondary text
 val NeutralDisabled = Color(0xFFADB5BD)// use for disabled
 val NeutralLine = Color(0xFFEDEDED)// use for divider
-val NeutralSecondaryBG = Color(0xFFF7F7FC)// use for BG
+val NeutralOffWhite = Color(0xFFF7F7FC)// use for BG
 val NeutralWhite = Color(0xFFFFFFFF) // use for BG
 
 val AccentDanger = Color(0xFFE94242)
