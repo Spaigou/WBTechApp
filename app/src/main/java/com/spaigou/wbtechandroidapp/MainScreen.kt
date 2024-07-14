@@ -10,6 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.spaigou.wbtechandroidapp.components.Buttons
 import com.spaigou.wbtechandroidapp.components.ChipRow
+import com.spaigou.wbtechandroidapp.components.DefaultAvatar
+import com.spaigou.wbtechandroidapp.components.EventAvatar
+import com.spaigou.wbtechandroidapp.components.ImageBase
+import com.spaigou.wbtechandroidapp.components.ProfileAvatar
 import com.spaigou.wbtechandroidapp.components.SearchBar
 
 @Composable
@@ -22,6 +26,8 @@ fun MainScreen() {
     ) {
         Buttons()
         TypographyField()
+        ProfileAvatar()
+        EventAvatar()
         SearchBar()
         ChipRow()
     }
