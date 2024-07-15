@@ -1,4 +1,4 @@
-package com.spaigou.wbtechandroidapp.components
+package com.spaigou.wbtechandroidapp.components.atoms
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -59,7 +59,7 @@ fun ChipRow() {
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewChipRow() {
+fun ChipRowPreview() {
     WBTechAndroidAppTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             ChipRow()

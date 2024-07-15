@@ -1,4 +1,4 @@
-package com.spaigou.wbtechandroidapp
+package com.spaigou.wbtechandroidapp.lessons
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Column
@@ -8,16 +8,14 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.spaigou.wbtechandroidapp.components.Buttons
-import com.spaigou.wbtechandroidapp.components.ChipRow
-import com.spaigou.wbtechandroidapp.components.DefaultAvatar
-import com.spaigou.wbtechandroidapp.components.EventAvatar
-import com.spaigou.wbtechandroidapp.components.ImageBase
-import com.spaigou.wbtechandroidapp.components.ProfileAvatar
-import com.spaigou.wbtechandroidapp.components.SearchBar
+import com.spaigou.wbtechandroidapp.components.atoms.Buttons
+import com.spaigou.wbtechandroidapp.components.atoms.ChipRow
+import com.spaigou.wbtechandroidapp.components.atoms.EventAvatar
+import com.spaigou.wbtechandroidapp.components.atoms.ProfileAvatar
+import com.spaigou.wbtechandroidapp.components.atoms.SearchBar
 
 @Composable
-fun MainScreen() {
+fun FirstLesson() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -36,6 +34,6 @@ fun MainScreen() {
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
-    MainScreen()
+    FirstLesson()
 }
 

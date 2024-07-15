@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.spaigou.wbtechandroidapp.lessons.FirstLesson
+import com.spaigou.wbtechandroidapp.lessons.SecondLesson
 import com.spaigou.wbtechandroidapp.ui.theme.WBTechAndroidAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -14,7 +16,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             WBTechAndroidAppTheme {
-                MainScreen()
+                SecondLesson()
             }
         }
     }
@@ -22,8 +24,8 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun SecondLessonPreview() {
     WBTechAndroidAppTheme {
-        MainScreen()
+        SecondLesson()
     }
 }

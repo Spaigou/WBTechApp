@@ -1,4 +1,4 @@
-package com.spaigou.wbtechandroidapp.components
+package com.spaigou.wbtechandroidapp.components.atoms
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons

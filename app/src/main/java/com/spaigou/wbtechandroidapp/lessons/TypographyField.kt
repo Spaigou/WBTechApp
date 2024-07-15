@@ -1,4 +1,4 @@
-package com.spaigou.wbtechandroidapp
+package com.spaigou.wbtechandroidapp.lessons
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.spaigou.wbtechandroidapp.R
 import com.spaigou.wbtechandroidapp.ui.theme.LocalTypography
 import com.spaigou.wbtechandroidapp.ui.theme.WBTechAndroidAppTheme
 
@@ -75,6 +76,6 @@ fun TypographyField() {
 @Composable
 fun AppPreview() {
     WBTechAndroidAppTheme {
-        MainScreen()
+        FirstLesson()
     }
 }

@@ -1,4 +1,4 @@
-package com.spaigou.wbtechandroidapp.components
+package com.spaigou.wbtechandroidapp.components.atoms
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -31,8 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.spaigou.wbtechandroidapp.MainScreen
-import com.spaigou.wbtechandroidapp.components.NoRippleTheme
+import com.spaigou.wbtechandroidapp.lessons.FirstLesson
 import com.spaigou.wbtechandroidapp.ui.theme.BrandColorDark
 import com.spaigou.wbtechandroidapp.ui.theme.BrandColorDefault
 import com.spaigou.wbtechandroidapp.ui.theme.NeutralOffWhite
@@ -174,9 +173,9 @@ fun SecondaryButton(
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun ButtonsPreview() {
     WBTechAndroidAppTheme {
-        MainScreen()
+        Buttons()
     }
 }
 
