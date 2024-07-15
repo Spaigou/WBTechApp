@@ -26,6 +26,7 @@ val NeutralDisabled = Color(0xFFADB5BD)// use for disabled
 val NeutralLine = Color(0xFFEDEDED)// use for divider
 val NeutralOffWhite = Color(0xFFF7F7FC)// use for BG
 val NeutralWhite = Color(0xFFFFFFFF) // use for BG
+val VisitorsColor = Color(0xFFD2D5F9) // use for Visitor in VisitorsRow
 
 val AccentDanger = Color(0xFFE94242)
 val AccentWarning = Color(0xFFFDCF41)

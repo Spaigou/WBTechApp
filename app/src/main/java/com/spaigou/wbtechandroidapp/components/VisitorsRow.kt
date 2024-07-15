@@ -1,4 +1,4 @@
-package com.spaigou.wbtechandroidapp.components.atoms
+package com.spaigou.wbtechandroidapp.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -11,13 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import com.spaigou.wbtechandroidapp.components.atoms.UserAvatar
 import com.spaigou.wbtechandroidapp.ui.theme.LocalTypography
 
 @Composable
 fun VisitorsRow(
     images: List<String>,
     modifier: Modifier = Modifier,
-    overlappingPercentage: Float,
+    overlappingPercentage: Float = 36.8f / 56,
 ) {
     val overlappingFactor = 1 - overlappingPercentage
 
@@ -50,7 +51,7 @@ fun VisitorsRowPreview() {
     LazyRow {
         item {
             val images = List(16) { "https://shorturl.at/ng9Tx" }
-            VisitorsRow(overlappingPercentage = 36.8f / 56, images = images)
+            VisitorsRow(images = images)
         }
     }
 }

@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.spaigou.wbtechandroidapp.R
 import com.spaigou.wbtechandroidapp.ui.theme.Gradient01
+import com.spaigou.wbtechandroidapp.ui.theme.VisitorsColor
 import com.spaigou.wbtechandroidapp.ui.theme.WBTechAndroidAppTheme
 
 sealed class UserStatus {
@@ -59,7 +60,7 @@ fun ImageBase(
                 .border(
                     BorderStroke(
                         2.dp,
-                        if (isVisitor) Color(0xFFD2D5F9)
+                        if (isVisitor) VisitorsColor
                         else Color.Transparent
                     ),
                     RoundedCornerShape(16.dp)
