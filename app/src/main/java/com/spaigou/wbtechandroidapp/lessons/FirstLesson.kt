@@ -12,7 +12,7 @@ import com.spaigou.wbtechandroidapp.components.atoms.Buttons
 import com.spaigou.wbtechandroidapp.components.atoms.ChipRow
 import com.spaigou.wbtechandroidapp.components.atoms.EventAvatar
 import com.spaigou.wbtechandroidapp.components.atoms.ProfileAvatar
-import com.spaigou.wbtechandroidapp.components.atoms.SearchBar
+import com.spaigou.wbtechandroidapp.components.atoms.CustomSearchBar
 
 @Composable
 fun FirstLesson() {
@@ -26,7 +26,7 @@ fun FirstLesson() {
         TypographyField()
         ProfileAvatar()
         EventAvatar()
-        SearchBar()
+        CustomSearchBar()
         ChipRow()
     }
 }

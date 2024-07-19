@@ -1,6 +1,7 @@
 package com.spaigou.wbtechandroidapp.components.atoms
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
@@ -22,7 +23,7 @@ import com.spaigou.wbtechandroidapp.ui.theme.NeutralOffWhite
 import com.spaigou.wbtechandroidapp.ui.theme.WBTechAndroidAppTheme
 
 @Composable
-fun SearchBar(
+fun CustomSearchBar(
     modifier: Modifier = Modifier,
     backgroundColor: Color = NeutralOffWhite,
     contentColor: Color = NeutralDisabled,
@@ -46,8 +47,8 @@ fun SearchBar(
                 tint = contentColor
             )
         },
-        modifier = modifier
-            .padding(horizontal = 6.dp, vertical = 8.dp),
+        modifier = modifier.padding(vertical = 8.dp),
+        shape = RoundedCornerShape(4.dp),
         colors = TextFieldDefaults.colors(
             focusedContainerColor = backgroundColor,
             unfocusedContainerColor = backgroundColor,
@@ -63,6 +64,6 @@ fun SearchBar(
 @Composable
 fun SearchBarPreview() {
     WBTechAndroidAppTheme {
-        SearchBar()
+        CustomSearchBar()
     }
 }
