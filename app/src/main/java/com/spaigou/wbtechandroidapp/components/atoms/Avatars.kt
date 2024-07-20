@@ -46,7 +46,6 @@ fun ImageBase(
 ) {
     Box(
         modifier = modifier
-            .padding(4.dp)
             .size(imageSize)
     ) {
         AsyncImage(
@@ -82,7 +81,6 @@ fun DefaultAvatar(
 ) {
     Box(
         modifier = modifier
-            .padding(4.dp)
             .size(placeholderSize)
             .background(color = backgroundColor, shape = CircleShape),
         contentAlignment = Alignment.Center
@@ -108,18 +106,25 @@ fun DefaultAvatar(
 fun ProfileAvatar(
     modifier: Modifier = Modifier,
     url: String? = null,
-    imageSize: Dp = 100.dp,
+    imageSize: Dp = 56.dp,
+    placeholderSize: Dp = 100.dp,
+    radius: Dp = 50.dp,
     editMode: Boolean = false
 ) {
     if (url == null) {
-        DefaultAvatar(editMode = editMode)
+        DefaultAvatar(
+            modifier = modifier,
+            editMode = editMode,
+            imageSize = imageSize,
+            placeholderSize = placeholderSize
+        )
     } else {
         ImageBase(
             modifier = modifier,
             url = url,
             contentDescription = "Profile avatar",
-            imageSize = imageSize,
-            radius = 50.dp
+            imageSize = placeholderSize,
+            radius = radius
         )
     }
 }

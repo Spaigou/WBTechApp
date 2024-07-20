@@ -2,6 +2,7 @@ package com.spaigou.wbtechandroidapp.mockdata
 
 import com.spaigou.wbtechandroidapp.components.Community
 import com.spaigou.wbtechandroidapp.components.Event
+import com.spaigou.wbtechandroidapp.model.User
 import java.time.LocalDate
 
 val mockEvents = List(11) {
@@ -24,3 +25,9 @@ val mockCommunities = List(11) {
         visitorsCount = 10000
     )
 }
+
+val mockUser = User(
+    name = "Иванна Иванова",
+    phoneNumber = "+7 999 999-99-99",
+    avatarUrl = "https://shorturl.at/ng9Tx"
+)

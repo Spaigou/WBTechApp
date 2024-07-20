@@ -3,14 +3,10 @@ package com.spaigou.wbtechandroidapp.screens
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Scaffold
@@ -26,7 +22,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
@@ -39,14 +38,14 @@ import com.spaigou.wbtechandroidapp.components.atoms.CustomSearchBar
 import com.spaigou.wbtechandroidapp.mockdata.mockEvents
 import com.spaigou.wbtechandroidapp.ui.theme.BrandColorDefault
 import com.spaigou.wbtechandroidapp.ui.theme.LocalTypography
-import com.spaigou.wbtechandroidapp.ui.theme.NeutralActive
 import com.spaigou.wbtechandroidapp.ui.theme.NeutralWhite
 import kotlinx.coroutines.launch
 
 @Composable
 fun EventsScreen(
     modifier: Modifier = Modifier,
-    navController: NavHostController
+    navController: NavHostController,
+    events: List<Event>? = null
 ) {
     Scaffold(
         modifier = modifier,
@@ -73,15 +72,24 @@ fun EventsScreen(
                 modifier = Modifier
                     .fillMaxWidth()
             )
-            PageWithEvents(events = mockEvents)
+            val secondPageEvents = events?.filter { !it.isEnded }
+            PageWithEvents(
+                firstPageEvents = events,
+                secondPageEvents = secondPageEvents,
+                pageNames = listOf("Все встречи", "Активные")
+            )
         }
     }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PageWithEvents(modifier: Modifier = Modifier, events: List<Event>? = null) {
-    val pageNames = listOf("Все встречи", "Активные")
+fun PageWithEvents(
+    modifier: Modifier = Modifier,
+    firstPageEvents: List<Event>? = null,
+    secondPageEvents: List<Event>? = null,
+    pageNames: List<String>
+) {
     val pageCount = pageNames.size
     val pagerState = rememberPagerState(pageCount = { pageCount })
     val coroutineScope = rememberCoroutineScope()
@@ -104,6 +112,7 @@ fun PageWithEvents(modifier: Modifier = Modifier, events: List<Event>? = null) {
         pageNames.forEachIndexed { index, current ->
             Tab(
                 selected = selectedPageIndex == index,
+                selectedContentColor = BrandColorDefault,
                 unselectedContentColor = Color(0xFF666666),
                 onClick = {
                     coroutineScope.launch {
@@ -113,8 +122,8 @@ fun PageWithEvents(modifier: Modifier = Modifier, events: List<Event>? = null) {
                 text = {
                     Text(
                         text = current.uppercase(),
-                        style = LocalTypography.current.bodyText2,
-                        color = BrandColorDefault
+                        style = LocalTypography.current.roboto,
+                        letterSpacing = TextUnit(1F, TextUnitType.Sp)
                     )
                 },
             )
@@ -123,11 +132,10 @@ fun PageWithEvents(modifier: Modifier = Modifier, events: List<Event>? = null) {
 
     HorizontalPager(state = pagerState) { page ->
         when (page) {
-            0 -> ListOfEvents(events = events)
+            0 -> ListOfEvents(events = firstPageEvents)
 
             1 -> {
-                val filterEvents = events?.filter { !it.isEnded }
-                ListOfEvents(events = filterEvents)
+                ListOfEvents(events = secondPageEvents)
             }
         }
     }
@@ -143,7 +151,14 @@ fun ListOfEvents(modifier: Modifier = Modifier, events: List<Event>? = null) {
                 EventCard(event = event)
             }
         } ?: item {
-            Text("No events found", style = LocalTypography.current.bodyText1)
+            Text(
+                text = "No events found",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 16.dp),
+                style = LocalTypography.current.heading2,
+                textAlign = TextAlign.Center,
+            )
         }
 
     }
@@ -152,5 +167,5 @@ fun ListOfEvents(modifier: Modifier = Modifier, events: List<Event>? = null) {
 @Preview(showBackground = true)
 @Composable
 fun EventsScreenPreview() {
-    EventsScreen(navController = rememberNavController())
+    EventsScreen(navController = rememberNavController(), events = mockEvents)
 }

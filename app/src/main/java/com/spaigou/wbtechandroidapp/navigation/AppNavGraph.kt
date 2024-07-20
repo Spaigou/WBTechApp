@@ -4,11 +4,14 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.spaigou.wbtechandroidapp.mockdata.mockEvents
+import com.spaigou.wbtechandroidapp.mockdata.mockUser
 import com.spaigou.wbtechandroidapp.screens.CommunitiesScreen
 import com.spaigou.wbtechandroidapp.screens.EventDetailsScreen
 import com.spaigou.wbtechandroidapp.screens.EventsScreen
 import com.spaigou.wbtechandroidapp.screens.LottieSplashScreen
 import com.spaigou.wbtechandroidapp.screens.MoreScreen
+import com.spaigou.wbtechandroidapp.screens.MyEventsScreen
 import com.spaigou.wbtechandroidapp.screens.ProfileAccountScreen
 
 @Composable
@@ -21,7 +24,7 @@ fun AppNavGraph(navController: NavHostController) {
         }
 
         composable(route = Route.EVENTS) {
-            EventsScreen(navController = navController)
+            EventsScreen(navController = navController, events = mockEvents)
         }
 
         composable(route = Route.COMMUNITIES) {
@@ -29,15 +32,19 @@ fun AppNavGraph(navController: NavHostController) {
         }
 
         composable(route = Route.MORE) {
-            MoreScreen()
+            MoreScreen(navController = navController)
         }
 
         composable(route = Route.PROFILE_ACCOUNT) {
-            ProfileAccountScreen()
+            ProfileAccountScreen(navController = navController, user = mockUser)
         }
 
         composable(route = Route.EVENT_DETAILS) {
             EventDetailsScreen()
+        }
+
+        composable(route = Route.MY_EVENTS) {
+            MyEventsScreen(navController = navController, events = mockEvents)
         }
     }
 }

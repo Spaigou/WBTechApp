@@ -30,6 +30,7 @@ fun CustomSearchBar(
 ) {
     var searchText by remember { mutableStateOf("") }
 
+    // уменьшить высоту можно с помощью BasicTextField
     TextField(
         value = searchText,
         onValueChange = { searchText = it },

@@ -22,12 +22,18 @@ data class MyTypography(
     val metadata1: TextStyle,
     val metadata2: TextStyle,
     val metadata3: TextStyle,
+    val roboto: TextStyle
 )
 
 val sfProDisplayFontFamily = FontFamily(
     Font(R.font.sf_pro_display_bold, FontWeight.Bold),
     Font(R.font.sf_pro_display_semibold, FontWeight.SemiBold),
     Font(R.font.sf_pro_display_regular, FontWeight.Normal),
+)
+
+val robotoFontFamily = FontFamily(
+    Font(R.font.roboto_regular, FontWeight.Normal),
+    Font(R.font.roboto_bold, FontWeight.Bold)
 )
 
 val myTypography = MyTypography(
@@ -84,6 +90,12 @@ val myTypography = MyTypography(
         fontWeight = FontWeight.SemiBold,
         fontSize = 10.sp,
         lineHeight = 16.sp,
+    ),
+    roboto = TextStyle(
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight(500),
+        fontSize = 14.sp,
+        lineHeight = 24.sp,
     )
 )
 
